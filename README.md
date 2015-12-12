@@ -1,3 +1,4 @@
 # C3
-<span style="float: right;"><a href="READMEIT.md">it</a>/<a href="README.md">en</a></span>
 Cards Game.
+
+<span style="float: right; text-align:right;">[<a href="READMEIT.md">Italian Version</a> - <a href="README.md">English Version</a>]</span>
