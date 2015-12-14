@@ -1,7 +1,7 @@
-#include "config.h"
+#include "funzioni.c"
 
 void main(){
-	FullScreenMode();
+//	FullScreenMode();
 	Giocatore g1;
 	Giocatore g2;
 	titolo();	
@@ -22,6 +22,7 @@ void main(){
 	else{
 		printf("\nPurtroppo non accettando il regolamento non puoi giocare.\n");
 	}
+
 	
 	
 	

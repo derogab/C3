@@ -1,6 +1,6 @@
 // LIBRERIA GENERALE DEL GIOCO
 // A cura di Gabriele, Federica, Riccardo
-#include <windows.h>
+//#include <windows.h>
 #include <conio.h>
 #include <stdio.h>
 #include <stdlib.h>
