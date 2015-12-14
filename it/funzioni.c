@@ -204,8 +204,41 @@ void gioca(Giocatore g1, Giocatore g2){
 			
 		}
 	}
-	
-	
-	
-	
+}
+
+vincitore combatti(Carta *c1, Carta *c2){
+	int p_c1 = punteggio_carta(&c1);
+	int p_c2 = punteggio_carta(&c2);
+	if(p_c1 > p_c2){
+		aggiorna_valori(&c1, TRUE, 0);
+		aggiorna_valori(&c2, FALSE, (p_c1 - p_c2));
+		return G1;
+	}else if(p_c1 < p_c2){
+		aggiorna_valori(&c2, TRUE, 0);
+		aggiorna_valori(&c1, FALSE, (p_c2 - p_c1));
+		return G2;
+	}
+	aggiorna_valori(&c1, TRUE, 0);
+	aggiorna_valori(&c2, TRUE, 0);
+		
+	return PARI;
+}
+void aggiorna_valori(Carta *c, boolean vinto, int diff){
+	if(vinto == TRUE){
+		c->stanchezza += 1;
+	}else{
+		c->stanchezza += diff;
+	}
+}
+int punteggio_carta(Carta *c){
+	int p = (c->forza) + getForzaArma(c->arma);
+	p -= c->stanchezza; //sottrai stanchezza
+	return p;
+}
+int getForzaArma(Arma arma){
+	int forza = arma.forzarma;
+	if(arma.potenziamento.attivo == TRUE){
+		forza += arma.potenziamento.puntip;
+	}
+	return forza;
 }
