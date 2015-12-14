@@ -1,10 +1,23 @@
 #include "config.h"
 
-void FullScreenMode(){
+void clearScreen(){
+	
+system("cls"); // Clears the screen
+fflush(stdin); // Svuto anche il buffer	
+	
+}
+
+void fullScreen(){
+	
+	if(isFullScreenEnable == FALSE){
+	
 	keybd_event(VK_MENU,0x38,0,0);
 	keybd_event(VK_RETURN,0x1c,0,0);
 	keybd_event(VK_RETURN,0x1c,KEYEVENTF_KEYUP,0);
 	keybd_event(VK_MENU,0x38,KEYEVENTF_KEYUP,0);
+	isFullScreenEnable = TRUE;
+	
+	}
 }
 
 Giocatore getGiocatore(){
@@ -69,6 +82,7 @@ void preparazione(){
 	printf("Preparazione schermata in corso");
 	for(i=0;i<4;i++){ printf("."); sleep(1); }
 	system("cls"); // Clears the screen
+	fullScreen();
 	for(i=0;i<COUNTDOWN;i++){ printf("La partita iniziera' fra %d secondi.", (COUNTDOWN-i)); sleep(1); system("cls"); }
 	system("cls"); // Clears the screen
 	
@@ -98,6 +112,8 @@ void mischia(Giocatore *x, Giocatore *y){
 
 void turno(Giocatore *att, Giocatore *dif){
 	
+	clearScreen();
+	
 	printf("\nTurno di %s: \n\n", att->nome);
 	
 	
@@ -106,43 +122,46 @@ void turno(Giocatore *att, Giocatore *dif){
 	
 	
 	//TOGLI QUESTA PARTE
-	att->nc++; dif->nc--; fflush(stdin); getchar(); fflush(stdin);
+	att->nc--; dif->nc--; fflush(stdin); getchar(); fflush(stdin); // Per ora serve solo per terminare il programma dopo un po' di cicli
 	// TOGLI QUESTA PARTE
 	
+	clearScreen();
 }
 
 void start(Giocatore *p1, Giocatore *p2){
-	// Ricorda che Player 1 deve partire prima perchè è il più giovane
+	// Ricorda che Player 1 deve partire prima perche' giovane
 
 	while(1){
 		
-		if(p1->nc == 0){ break; }else{ turno(p1,p2); }
-		if(p2->nc == 0){ break; }else{ turno(p2,p1); }
+		if(p1->nc == 0){ break; }else{ system("color 1F"); turno(p1,p2); }
+		if(p2->nc == 0){ break; }else{ system("color 5F"); turno(p2,p1); }
 		
 	}
+	
+	system("color 0F"); // Torno alla normalita'
 	
 }
 
 
 void mano(Giocatore g){
-	
-	
-printf("\n                                ______________________________________");
-printf("\n                               |                                      |");
-printf("\n                    _.---------|.--.       %5s %5s            |", g.mazzo[0].display[0], g.mazzo[1].display[0]);
-printf("\n                 .-'  `       .'/  ``      %5s %5s            |", g.mazzo[0].display[1], g.mazzo[1].display[0]);
-printf("\n              .-'           .' |    /|     %5s %5s            |", g.mazzo[0].display[2], g.mazzo[1].display[0]);
-printf("\n           .-'         |   /   `.__//      %5s %5s            |", g.mazzo[0].display[3], g.mazzo[1].display[0]);
-printf("\n        .-'           _.--/        /                                  |");
-printf("\n       |        _  .-'   /        /                                   |");
-printf("\n       |     ._  \      /     `  /                                     |");
-printf("\n       |        ` .    /     `  /                                     |");
-printf("\n       |         \ \ '/        /                                        |");
-printf("\n       |        - \  /        /|                                       |");
-printf("\n       |        '  .'        / |                                      |");
-printf("\n       |          '         |.'|                                      |");
-printf("\n       |                    |  |                                      |");
-printf("\n       |                    |  |______________________________________|");
+
+printf("\n                                ______________________________________________________________________________________");
+printf("\n                               |                                                                                     |");
+printf("\n                               |           %5s %5s %5s %5s %5s %5s %5s %5s %5s   |", g.mazzo[0].display[0], g.mazzo[1].display[0], g.mazzo[2].display[0], g.mazzo[3].display[0], g.mazzo[4].display[0], g.mazzo[5].display[0], g.mazzo[6].display[0], g.mazzo[7].display[0], g.mazzo[8].display[0]);
+printf("\n                    _.---------|.--.       %5s %5s %5s %5s %5s %5s %5s %5s %5s   |", g.mazzo[0].display[1], g.mazzo[1].display[1], g.mazzo[2].display[1], g.mazzo[3].display[1], g.mazzo[4].display[1], g.mazzo[5].display[1], g.mazzo[6].display[1], g.mazzo[7].display[1], g.mazzo[8].display[1]);
+printf("\n                 .-'  `       .'/  ``      %5s %5s %5s %5s %5s %5s %5s %5s %5s   |", g.mazzo[0].display[2], g.mazzo[1].display[2], g.mazzo[2].display[2], g.mazzo[3].display[2], g.mazzo[4].display[2], g.mazzo[5].display[2], g.mazzo[6].display[2], g.mazzo[7].display[2], g.mazzo[8].display[2]);
+printf("\n              .-'           .' |    /|     %5s %5s %5s %5s %5s %5s %5s %5s %5s   |", g.mazzo[0].display[3], g.mazzo[1].display[3], g.mazzo[2].display[3], g.mazzo[3].display[3], g.mazzo[4].display[3], g.mazzo[5].display[3], g.mazzo[6].display[3], g.mazzo[7].display[3], g.mazzo[8].display[3]);
+printf("\n           .-'         |   /   `.__//                                                                                |");
+printf("\n        .-'           _.--/        /       %5s %5s %5s %5s %5s %5s %5s %5s %5s   |", g.mazzo[9].display[0], g.mazzo[10].display[0], g.mazzo[11].display[0], g.mazzo[12].display[0], g.mazzo[13].display[0], g.mazzo[14].display[0], g.mazzo[15].display[0], g.mazzo[16].display[0], g.mazzo[17].display[0]);
+printf("\n       |        _  .-'   /        /        %5s %5s %5s %5s %5s %5s %5s %5s %5s   |", g.mazzo[9].display[1], g.mazzo[10].display[1], g.mazzo[11].display[1], g.mazzo[12].display[1], g.mazzo[13].display[1], g.mazzo[14].display[1], g.mazzo[15].display[1], g.mazzo[16].display[1], g.mazzo[17].display[1]);
+printf("\n       |     ._  \      /     `  /          %5s %5s %5s %5s %5s %5s %5s %5s %5s   |", g.mazzo[9].display[2], g.mazzo[10].display[2], g.mazzo[11].display[2], g.mazzo[12].display[2], g.mazzo[13].display[2], g.mazzo[14].display[2], g.mazzo[15].display[2], g.mazzo[16].display[2], g.mazzo[17].display[2]);
+printf("\n       |        ` .    /     `  /          %5s %5s %5s %5s %5s %5s %5s %5s %5s   |", g.mazzo[9].display[3], g.mazzo[10].display[3], g.mazzo[11].display[3], g.mazzo[12].display[3], g.mazzo[13].display[3], g.mazzo[14].display[3], g.mazzo[15].display[3], g.mazzo[16].display[3], g.mazzo[17].display[3]);
+printf("\n       |         \ \ '/        /                                                                                       |");
+printf("\n       |        - \  /        /|            %5s %5s %5s %5s %5s %5s %5s %5s           |", g.mazzo[18].display[0], g.mazzo[19].display[0], g.mazzo[20].display[0], g.mazzo[21].display[0], g.mazzo[22].display[0], g.mazzo[23].display[0], g.mazzo[24].display[0], g.mazzo[25].display[0]);
+printf("\n       |        '  .'        / |           %5s %5s %5s %5s %5s %5s %5s %5s           |", g.mazzo[18].display[1], g.mazzo[19].display[1], g.mazzo[20].display[1], g.mazzo[21].display[1], g.mazzo[22].display[1], g.mazzo[23].display[1], g.mazzo[24].display[1], g.mazzo[25].display[1]);
+printf("\n       |          '         |.'|           %5s %5s %5s %5s %5s %5s %5s %5s           |", g.mazzo[18].display[2], g.mazzo[19].display[2], g.mazzo[20].display[2], g.mazzo[21].display[2], g.mazzo[22].display[2], g.mazzo[23].display[2], g.mazzo[24].display[2], g.mazzo[25].display[2]);
+printf("\n       |                    |  |           %5s %5s %5s %5s %5s %5s %5s %5s           |", g.mazzo[18].display[3], g.mazzo[19].display[3], g.mazzo[20].display[3], g.mazzo[21].display[3], g.mazzo[22].display[3], g.mazzo[23].display[3], g.mazzo[24].display[3], g.mazzo[25].display[3]);
+printf("\n       |                    |  |_____________________________________________________________________________________|");
 printf("\n       |                    |.'");
 printf("\n       |                    /");
 printf("\n       |                   /");
@@ -158,9 +177,7 @@ printf("\nMMMMMMMMMMMMMMMMMMMMMA.`.");
 printf("\nMMMMMMMMMMMMMMMMMMMMMMMA.");
 printf("\nMMMMMMMMMMMMMMMMMMMMMMMMMA.");
 printf("\nMMMMMMMMMMMMMMMMMMMMMMMMMMM");
-printf("\nMMMMMMMMMMMMMMMMMMMMMMMMMV'");
-	
-	
+printf("\nMMMMMMMMMMMMMMMMMMMMMMMMMV'");	
 }
 
 void gioca(Giocatore g1, Giocatore g2){
@@ -168,33 +185,33 @@ void gioca(Giocatore g1, Giocatore g2){
 	preparazione();
 	mischia(&g1, &g2);
 	
-	// Guardo il giocatore più giovane
+	// Guardo il giocatore piu' giovane
 	if(g1.nascita.anno > g2.nascita.anno){
-		// G2 è più giovane
+		// G2 giovane
 		start(&g2, &g1);
 	}
 	else if(g1.nascita.anno < g2.nascita.anno){
-		// G1 è più giovane
+		// G1 giovane
 		start(&g1, &g2);
 	}
 	else{
 		// Gli anni sono uguali, devo guardare il mese.
 		if(g1.nascita.mese > g2.nascita.mese){
-			// G2 è più giovane
+			// G2 giovane
 			start(&g2, &g1);
 		}
 		else if(g1.nascita.mese < g2.nascita.mese){
-			// G1 è più giovane
+			// G1 giovane
 			start(&g1, &g2);
 		}
 		else{
 			// Anche i mesi sono uguali, devo guardare il giorno
 			if(g1.nascita.giorno > g2.nascita.giorno){
-				// G2 è più giovane
+				// G2 giovane
 				start(&g2, &g1);
 			}
 			else if(g1.nascita.mese < g2.nascita.mese){
-				// G1 è più giovane
+				// G1 giovane
 				start(&g1, &g2);			
 			}
 			else{
@@ -206,35 +223,38 @@ void gioca(Giocatore g1, Giocatore g2){
 	}
 }
 
-vincitore combatti(Carta *c1, Carta *c2){
-	int p_c1 = punteggio_carta(&c1);
-	int p_c2 = punteggio_carta(&c2);
+Vincitore combatti(Carta *c1, Carta *c2){
+	int p_c1 = punteggioCarta(c1);
+	int p_c2 = punteggioCarta(c2);
 	if(p_c1 > p_c2){
-		aggiorna_valori(&c1, TRUE, 0);
-		aggiorna_valori(&c2, FALSE, (p_c1 - p_c2));
+		aggiornaValori(c1, TRUE, 0);
+		aggiornaValori(c2, FALSE, (p_c1 - p_c2));
 		return G1;
 	}else if(p_c1 < p_c2){
-		aggiorna_valori(&c2, TRUE, 0);
-		aggiorna_valori(&c1, FALSE, (p_c2 - p_c1));
+		aggiornaValori(c2, TRUE, 0);
+		aggiornaValori(c1, FALSE, (p_c2 - p_c1));
 		return G2;
 	}
-	aggiorna_valori(&c1, TRUE, 0);
-	aggiorna_valori(&c2, TRUE, 0);
+	aggiornaValori(c1, TRUE, 0);
+	aggiornaValori(c2, TRUE, 0);
 		
 	return PARI;
 }
-void aggiorna_valori(Carta *c, boolean vinto, int diff){
+
+void aggiornaValori(Carta *c, boolean vinto, int diff){
 	if(vinto == TRUE){
 		c->stanchezza += 1;
 	}else{
 		c->stanchezza += diff;
 	}
 }
-int punteggio_carta(Carta *c){
+
+int punteggioCarta(Carta *c){
 	int p = (c->forza) + getForzaArma(c->arma);
-	p -= c->stanchezza; //sottrai stanchezza
+	p -= c->stanchezza; // Sottrai stanchezza
 	return p;
 }
+
 int getForzaArma(Arma arma){
 	int forza = arma.forzarma;
 	if(arma.potenziamento.attivo == TRUE){

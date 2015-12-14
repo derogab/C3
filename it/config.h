@@ -13,9 +13,10 @@
 #define MAZZO 26
 #define CARTE 13
 
+boolean isFullScreenEnable = FALSE;
+
 // Dichiarazione delle strutture e dei tipi del gioco
-//typedef enum {TRUE, FALSE} boolean;  inutile - già presente in windows.h
-typedef enum {G1, G2, PARI} vincitore;
+typedef enum {G1, G2, PARI} Vincitore;
 
 typedef struct{
 	
@@ -41,7 +42,7 @@ typedef struct{
 	int costo;
 	Arma arma;
 	int forza;
-//	Potenziamento potenziamento;   -- È già presente in Arma
+//	Potenziamento potenziamento;   -- ï¿½ giï¿½ presente in Arma
 	int stanchezza;
 	int riposo;
 	
@@ -60,7 +61,7 @@ typedef struct{
 	char nome[LS];
 	char cognome[LS];
 	Nascita nascita;
-	Carta mazzo[MAZZO]; // Inizializzo a mazzo perchè un giocatore più comprare anche le carte dell'avversario, ragiungendo l'intero mazzo.
+	Carta mazzo[MAZZO]; // Inizializzo a mazzo perchï¿½ un giocatore piï¿½ comprare anche le carte dell'avversario, ragiungendo l'intero mazzo.
 	int nc; // Numero delle carte rimaste
 
 } Giocatore;
@@ -70,7 +71,9 @@ typedef struct{
 
 
 
-// Dichiarazione delle funzioni definite nel gioco, commentate con la loro funzionalità
+// Dichiarazione delle funzioni definite nel gioco, commentate con la loro funzionalitï¿½
+void clearScreen(); // Funzione per pulire completamente lo schermo.
+void fullScreen(); // Funzione per ingrandire al massimo lo schermo.
 Giocatore getGiocatore(); // Funzione per prendere i dati di un giocatore e restituire una variabile di tipo Giocatore
 void titolo(); // Funzione per stampare il titolo del gioco
 char regolamento(); // Funzione per stampare il regolamento del gioco
@@ -81,7 +84,7 @@ void start(Giocatore *p1, Giocatore *p2); // Funzione che fa partire il vero gio
 void turno(Giocatore *att, Giocatore *dif); // Funzione di un turno della partita
 char continua(); // Funzione per chiedere di iniziare una nuova partita
 void mano(Giocatore g); // Funzione che stampa a video le carte che il giocatore ha in mano
-vincitore combatti(Carta *c1, Carta *c2); //Funzione del combattimento tra i due giocatori. c1 = carta giocatore 1,  c2 = carta giocatore 2.  Ritorna vincitore (G1, G2, PARI) 
-void aggiorna_valori(Carta *c, boolean vinto, int diff); //Funzione che aggiorna i valori della carta. Se ha vinto -> vinto=true, se ha perso -> vinto=false
-int punteggio_carta(Carta *c); //ritorna il punteggio della carta, calcolandolo in base alle specifiche del gioco
-int getForzaArma(Arma arma); //ritorna la forza dell'arma (calcolata già con il potenziamento)
+Vincitore combatti(Carta *c1, Carta *c2); //Funzione del combattimento tra i due giocatori. c1 = carta giocatore 1,  c2 = carta giocatore 2.  Ritorna vincitore (G1, G2, PARI) 
+void aggiornaValori(Carta *c, boolean vinto, int diff); //Funzione che aggiorna i valori della carta. Se ha vinto -> vinto=true, se ha perso -> vinto=false
+int punteggioCarta(Carta *c); // Funzione che ritorna il punteggio della carta, calcolandolo in base alle specifiche del gioco
+int getForzaArma(Arma arma); // Funzione che ritorna la forza dell'arma (calcolata giï¿½ con il potenziamento)

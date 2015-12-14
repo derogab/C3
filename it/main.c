@@ -1,7 +1,6 @@
 #include "funzioni.c"
 
 void main(){
-	FullScreenMode();
 	Giocatore g1;
 	Giocatore g2;
 	titolo();	
