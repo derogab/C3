@@ -1,5 +1,6 @@
 #include "config.h"
-typedef enum {TRUE, FALSE} boolean;
+
+//typedef enum {TRUE, FALSE} boolean;
 //prova
 typedef struct{
 	
@@ -43,5 +44,6 @@ typedef struct{
 	char nome[LS];
 	char cognome[LS];
 	Nascita nascita;
+	int nc;  //numero carte (?)
 
 } Giocatore;

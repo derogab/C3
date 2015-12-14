@@ -1,4 +1,14 @@
-#include "config.h"
+#include <windows.h>
+#include <conio.h>
+#include "strutture.c"
+
+void FullScreenMode()
+{
+	keybd_event(VK_MENU,0x38,0,0);
+	keybd_event(VK_RETURN,0x1c,0,0);
+	keybd_event(VK_RETURN,0x1c,KEYEVENTF_KEYUP,0);
+	keybd_event(VK_MENU,0x38,KEYEVENTF_KEYUP,0);
+}
 
 Giocatore getGiocatore(){
 	
@@ -68,7 +78,7 @@ void preparazione(){
 }
 
 void mischia(Giocatore *x, Giocatore *y){
-	
+
 	int i;
 	x->nc = CARTE; // Inizializza il numero delle carte
 	y->nc = CARTE; // Inizializza il numero delle carte
@@ -86,7 +96,7 @@ void mischia(Giocatore *x, Giocatore *y){
 	strcpy(y->mazzo[i].display[3], "|_%%%O|");
 
 	}
-	
+
 }
 
 void turno(Giocatore *att, Giocatore *dif){
