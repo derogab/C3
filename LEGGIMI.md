@@ -4,7 +4,7 @@ Gioco di carte.
 
 <hr>
 
-<h3> Regole di base del gioco </h3>
+<h3>Regole di base del gioco </h3>
 
 <p>L’obiettivo del gioco “C3” è conquistare tutte le carte dell’avversario.</p>
 <p>All’inizio della partita il mazzo è composto da 26 carte, e viene diviso a metà fra i 2 giocatori;
