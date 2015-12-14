@@ -1,6 +1,6 @@
 #include "config.h"
 typedef enum {TRUE, FALSE} boolean;
-
+//prova
 typedef struct{
 	
 	char nome[LS];
