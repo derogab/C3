@@ -1,10 +1,7 @@
-<<<<<<< HEAD
-#define COUNTDOWN 10
-#define CARTE 20
-#define LS 20
-=======
 // LIBRERIA GENERALE DEL GIOCO
 // A cura di Gabriele, Federica, Riccardo
+#include <windows.h>
+#include <conio.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -83,4 +80,3 @@ void start(Giocatore *p1, Giocatore *p2); // Funzione che fa partire il vero gio
 void turno(Giocatore *att, Giocatore *dif); // Funzione di un turno della partita
 char continua(); // Funzione per chiedere di iniziare una nuova partita
 void mano(Giocatore g); // Funzione che stampa a video le carte che il giocatore ha in mano
->>>>>>> origin/master

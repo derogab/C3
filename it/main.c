@@ -1,6 +1,5 @@
-#include <stdio.h>
 #include "config.h"
-#include "funzioni.c"
+
 void main(){
 	FullScreenMode();
 	Giocatore g1;
