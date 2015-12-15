@@ -1,0 +1,54 @@
+
+
+
+
+printf("\nREGOLE DEL GIOCO\n");
+printf("\nN° GIOCATORI: 2\n");
+printf("\nOBBIETTIVO: conquistare tutte le carte dell’avversario.\n");
+printf("\nAll’inizio della partita il mazzo \130 composto da 26 carte, e viene diviso a metà fra i 2 giocatori.\n");
+printf("\nOgni carta, che rappresenta un personaggio di fantasia, è così strutturata:\n");
+printf("\n\tnome del personaggio;\n");
+printf("\n\tforza del personaggio;\n");
+printf("\n\tarma e punti di forza dell’arma;\n");
+printf("\n\tcosto in dobloni;\n");
+printf("\n\tpunti di potenziamento da aggiungere alla forza dell’arma;\n");
+printf("\n\tdurata del potenziamento;\n");
+printf("\n\tpunti stanchezza.\n");
+printf("\nOgni giocatore riceve inoltre una somma iniziale pari a 50 dobloni.\n");
+printf("\nINIZIALIZZAZIONE: inserire nomi e date di nascita dei giocatori.\n");
+printf("\nInizia il giocatore più giovane.\n");
+printf("\nAd ogni turno il programma mostra due opzioni: \n");
+printf("\n\t1.acquisto carte\n");
+printf("\n\t2.combattimento\n");
+printf("\nSi calcolano e si confrontano i punteggi delle due carte estratte, sommando i punti forza del personaggio ai punti dell’arma in dotazione e sottraendo al risultato finale i punti stanchezza.\n");
+printf("\nIl personaggio che ha punteggio maggiore vince la sfida e fa guadagnare un doblone al giocatore estraendolo dal forziere comune.\n");
+printf("\nIn caso di pareggio non si estraggono dobloni dal forziere ed è necessario rilanciare i dadi.");
+printf("\nDopo la sfida è necessario aggiornare i valori di ogni carta:\n");
+printf("\n\tchi ha vinto acquisisce comunque un punto stanchezza;\n");
+printf("\n\tchi ha perso acquisisce un numero di punti stanchezza pari alla differenza fra le due forze totali che sono state confrontate;\n");
+printf("\n\tle carte che stanno a riposo per almeno tre turni consecutivi, si ricaricano fino ad annullare il valore della stanchezza.\n");
+printf("\nSe i dobloni del giocatore sono sufficienti, prima di ogni turno è possibile acquistare una sola carta dall'avversario. L'avversario non può rifiutare l'acquisto di una carta.\n");
+printf("\nIl gioco termina quando uno dei due giocatori è riuscito a sottrarre tutte le carte avversarie.\n");
+
+
+
+
+
+
+
+
+
+strcpy(x->mazzo[0].nome, "Nome");
+x->mazzo[0].costo = 21;
+strcpy(x->mazzo[0].arma.nome, "NomeA");
+x->mazzo[0].arma.forza = 200;
+strcpy(x->mazzo[0].arma.potenziamento.nome, "NomeP");
+x->mazzo[0].arma.potenziamento.attivo = FALSE;
+x->mazzo[0].arma.potenziamento.punti = 12;
+x->mazzo[0].arma.potenziamento.durata = 5;
+x->mazzo[0].forza = 100;
+x->mazzo[0].stanchezza = 0;
+x->mazzo[0].riposo = 0;
+
+
+
