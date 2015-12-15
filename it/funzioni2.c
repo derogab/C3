@@ -26,11 +26,34 @@ void turno(Giocatore *att, Giocatore *dif){
 	clearScreen();
 }
 
-void combattimento(){
+void combattimento(Giocatore *att, Giocatore *dif){
 	
+	srand(time(null));
+	Carta carta1 = att->mazzo[rand()%(att->nc)];
+	Carta carta2 = dif->mazzo[rand()%(dif->nc)];
+	v = combatti(carta1, carta2);
 	
+	if(v == G1){
+		// Ha vinto att
+		aggiornaValori(carta1, TRUE, (punteggioCarta(carta1) - puteggioCarta(carta2)));
+		aggiornaValori(carta2, FALSE, (punteggioCarta(carta1) - puteggioCarta(carta2)));
+		
+	}
+	else if(v == G2){
+		// Ha vinto dif
+		aggiornaValori(carta2, TRUE, (punteggioCarta(carta2) - puteggioCarta(carta1)));
+		aggiornaValori(carta1, FALSE, (punteggioCarta(carta2) - puteggioCarta(carta1)));
+		
+	}
+	else if(v == PARI){
+		// Passo VINTO ad entrambi così aggiorna solo 1 stanchezza
+		aggiornaValori(carta1, TRUE, (punteggioCarta(carta1) - puteggioCarta(carta2)));
+		aggiornaValori(carta2, TRUE, (punteggioCarta(carta1) - puteggioCarta(carta2)));
+	}
+	else{
+		printf();
+	}
 	
-	
-	
+		
 	
 }
