@@ -262,3 +262,18 @@ int getForzaArma(Arma arma){
 	}
 	return forza;
 }
+boolean isGameEnd(Giocatore g1, Giocatore g2){
+	if(g1.nc == 0) || g2.nc == 0){
+		return true;
+	}
+	return false;
+}
+Giocatore getWinnerGame(Giocatore g1, Giocatore g2){  //prima richiama isGameEnd
+	if(g1.nc == 0){
+		return g2;
+	}
+	return g1;	
+}
+int lancioDado(){
+	
+}

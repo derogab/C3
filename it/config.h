@@ -88,3 +88,6 @@ Vincitore combatti(Carta *c1, Carta *c2); //Funzione del combattimento tra i due
 void aggiornaValori(Carta *c, boolean vinto, int diff); //Funzione che aggiorna i valori della carta. Se ha vinto -> vinto=true, se ha perso -> vinto=false
 int punteggioCarta(Carta *c); // Funzione che ritorna il punteggio della carta, calcolandolo in base alle specifiche del gioco
 int getForzaArma(Arma arma); // Funzione che ritorna la forza dell'arma (calcolata giï¿½ con il potenziamento)
+boolean isGameEnd(Giocatore g1, Giocatore g2); //ritorna vero se un giocatore non ha più carte
+Giocatore getWinnerGame(Giocatore g1, Giocatore g2); //ritorna il giocatore che ha ancora carte
+int lancioDado(); //ritorna numero random
