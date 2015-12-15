@@ -22,15 +22,15 @@ typedef struct{
 	
 	char nome[LS];
 	boolean attivo;
-	int puntip;
-	int duratap;
+	int punti;
+	int durata;
 
 } Potenziamento;
 
 typedef struct{
 	
 	char nome[LS];
-	int forzarma;
+	int forza;
 	Potenziamento potenziamento;
 
 } Arma;
@@ -42,7 +42,6 @@ typedef struct{
 	int costo;
 	Arma arma;
 	int forza;
-//	Potenziamento potenziamento;   -- ï¿½ giï¿½ presente in Arma
 	int stanchezza;
 	int riposo;
 	
@@ -63,6 +62,7 @@ typedef struct{
 	Nascita nascita;
 	Carta mazzo[MAZZO]; // Inizializzo a mazzo perchï¿½ un giocatore piï¿½ comprare anche le carte dell'avversario, ragiungendo l'intero mazzo.
 	int nc; // Numero delle carte rimaste
+	int dobloni;
 
 } Giocatore;
 
@@ -91,3 +91,5 @@ int getForzaArma(Arma arma); // Funzione che ritorna la forza dell'arma (calcola
 boolean isGameEnd(Giocatore g1, Giocatore g2); //ritorna vero se un giocatore non ha più carte
 Giocatore getWinnerGame(Giocatore g1, Giocatore g2); //ritorna il giocatore che ha ancora carte
 int lancioDado(); //ritorna numero random
+void updateDobloniWinner(Giocatore *g); //aggiorna dobloni giocatore
+void compraCartaAvversario(Giocatore *cliente, Giocatore *venditore); //cliente compracarta da avversario

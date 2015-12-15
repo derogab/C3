@@ -256,17 +256,17 @@ int punteggioCarta(Carta *c){
 }
 
 int getForzaArma(Arma arma){
-	int forza = arma.forzarma;
+	int forza = arma.forza;
 	if(arma.potenziamento.attivo == TRUE){
-		forza += arma.potenziamento.puntip;
+		forza += arma.potenziamento.punti;
 	}
 	return forza;
 }
 boolean isGameEnd(Giocatore g1, Giocatore g2){
-	if(g1.nc == 0) || g2.nc == 0){
-		return true;
+	if(g1.nc == 0 || g2.nc == 0){
+		return TRUE;
 	}
-	return false;
+	return FALSE;
 }
 Giocatore getWinnerGame(Giocatore g1, Giocatore g2){  //prima richiama isGameEnd
 	if(g1.nc == 0){
@@ -275,5 +275,8 @@ Giocatore getWinnerGame(Giocatore g1, Giocatore g2){  //prima richiama isGameEnd
 	return g1;	
 }
 int lancioDado(){
-	
+	printf("%d", rand()%6 +1);
+}
+void updateDobloniWinner(Giocatore *g){
+	(g->dobloni)++;
 }
