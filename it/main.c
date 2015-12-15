@@ -1,6 +1,8 @@
 #include "funzioni.c"
 
 void main(){
+	srand ( time(NULL) );
+	
 	Giocatore g1;
 	Giocatore g2;
 	titolo();	
@@ -15,7 +17,6 @@ void main(){
 			gioca(g1,g2);
 							
 		}while(continua() == 'Y');
-	
 	
 	}
 	else{
