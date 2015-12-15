@@ -60,7 +60,7 @@ typedef struct{
 	char nome[LS];
 	char cognome[LS];
 	Nascita nascita;
-	Carta mazzo[MAZZO]; // Inizializzo a mazzo perchï¿½ un giocatore piï¿½ comprare anche le carte dell'avversario, ragiungendo l'intero mazzo.
+	Carta mazzo[MAZZO]; // Inizializzo a mazzo perche' un giocatore piu' comprare anche le carte dell'avversario, ragiungendo l'intero mazzo.
 	int nc; // Numero delle carte rimaste
 	int dobloni;
 
@@ -84,12 +84,13 @@ void start(Giocatore *p1, Giocatore *p2); // Funzione che fa partire il vero gio
 void turno(Giocatore *att, Giocatore *dif); // Funzione di un turno della partita
 char continua(); // Funzione per chiedere di iniziare una nuova partita
 void mano(Giocatore g); // Funzione che stampa a video le carte che il giocatore ha in mano
+void combattimento(Giocatore *att, Giocatore *dif); // Funzione che fa partire il combattimento in un turno dopo la relativa scelta.
 Vincitore combatti(Carta *c1, Carta *c2); //Funzione del combattimento tra i due giocatori. c1 = carta giocatore 1,  c2 = carta giocatore 2.  Ritorna vincitore (G1, G2, PARI) 
 void aggiornaValori(Carta *c, boolean vinto, int diff); //Funzione che aggiorna i valori della carta. Se ha vinto -> vinto=true, se ha perso -> vinto=false
 int punteggioCarta(Carta *c); // Funzione che ritorna il punteggio della carta, calcolandolo in base alle specifiche del gioco
 int getForzaArma(Arma arma); // Funzione che ritorna la forza dell'arma (calcolata giï¿½ con il potenziamento)
-boolean isGameEnd(Giocatore g1, Giocatore g2); //ritorna vero se un giocatore non ha più carte
-Giocatore getWinnerGame(Giocatore g1, Giocatore g2); //ritorna il giocatore che ha ancora carte
-int lancioDado(); //ritorna numero random
-void updateDobloniWinner(Giocatore *g); //aggiorna dobloni giocatore
-void compraCartaAvversario(Giocatore *cliente, Giocatore *venditore); //cliente compracarta da avversario
+boolean isGameEnd(Giocatore g1, Giocatore g2); // Funzione che ritorna vero se un giocatore non ha più carte
+Giocatore getWinnerGame(Giocatore g1, Giocatore g2); // Funzione che ritorna il giocatore che ha ancora carte
+int lancioDado(); // Funzione che ritorna numero random
+void updateDobloniWinner(Giocatore *g); // Funzione che aggiorna dobloni giocatore
+void compraCartaAvversario(Giocatore *cliente, Giocatore *venditore); // Cliente compracarta da avversario

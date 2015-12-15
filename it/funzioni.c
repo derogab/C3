@@ -80,7 +80,7 @@ void preparazione(){
 	
 	system("cls"); // Clears the screen
 	printf("Preparazione schermata in corso");
-	for(i=0;i<4;i++){ printf("."); sleep(1); }
+	for(i=0;i<3;i++){ printf("."); sleep(1); }
 	system("cls"); // Clears the screen
 	fullScreen();
 	for(i=0;i<COUNTDOWN;i++){ printf("La partita iniziera' fra %d secondi.", (COUNTDOWN-i)); sleep(1); system("cls"); }
@@ -107,19 +107,43 @@ void mischia(Giocatore *x, Giocatore *y){
 	strcpy(y->mazzo[i].display[3], "|_%%%O|");
 
 	}
+	
+	for(i = CARTE; i < CARTE*2; i++){
+	
+	strcpy(x->mazzo[i].display[0], "       ");
+	strcpy(x->mazzo[i].display[1], "       ");
+	strcpy(x->mazzo[i].display[2], "       ");
+	strcpy(x->mazzo[i].display[3], "       ");
+	
+	strcpy(y->mazzo[i].display[0], "       ");
+	strcpy(y->mazzo[i].display[1], "       ");
+	strcpy(y->mazzo[i].display[2], "       ");
+	strcpy(y->mazzo[i].display[3], "       ");
+
+	}
 
 }
 
 void turno(Giocatore *att, Giocatore *dif){
 	
+	int scelta;
+	
 	clearScreen();
 	
 	printf("\nTurno di %s: \n\n", att->nome);
 	
-	
 	mano(*att);
+		
+	printf("\n\nCosa vuoi fare? \n\t1) Acquisto carte\n\t2) Combattimento\n\nInserisci la tua scelta: ");
+	scanf("%d", &scelta);
 	
-	
+	switch(scelta){
+		
+		case 1: /*acquistocarte(att, dif);*/ break;
+		case 2: combattimento(att, dif); break;
+		default: printf("Scelta non valida. "); turno(att, dif);
+		
+	}
 	
 	//TOGLI QUESTA PARTE
 	att->nc--; dif->nc--; fflush(stdin); getchar(); fflush(stdin); // Per ora serve solo per terminare il programma dopo un po' di cicli
@@ -223,6 +247,72 @@ void gioca(Giocatore g1, Giocatore g2){
 	}
 }
 
+void combattimento(Giocatore *att, Giocatore *dif){
+	
+	int i = 0;
+	Carta *carta1;
+	Carta *carta2;
+	
+	srand(time(NULL));
+	
+	carta1 = &(att->mazzo[rand()%((att->nc)-1)]);
+	carta2 = &(dif->mazzo[rand()%((dif->nc)-1)]);
+	
+	clearScreen();
+	
+	printf("                 __");
+	printf("\n                /  >");
+	printf("\n  *            /  /________________________________________________");
+	printf("\n (O)77777777777)  7                                                `~~--__");
+	printf("\n8OO>>>>>>>>>>>>] <===   Combattimento            __-");
+	printf("\n (O)LLLLLLLLLLL)  L________________________________________________.--~~");
+	printf("\n  *            \  \ ");
+	printf("\n                \__>");	
+	
+	printf("\n\n%s sta attaccando con:\n\n",att->nome);	
+	printf("%s", carta1->display[0]); printf("\t\tNome: %s\n", carta1->nome);
+	printf("%s", carta1->display[1]); printf("\t\tPotenza: %d\n", punteggioCarta(carta1));
+	printf("%s", carta1->display[2]); if(strcmp(carta1->arma.nome, "")==0){ printf("\t\tArma : /\n"); }else{printf("\t\tArma : %s\n", carta1->arma.nome);}
+	printf("%s", carta1->display[3]); printf("\t\tStanchezza: %d\n", carta1->stanchezza);		
+	
+	printf("\n\n");for(i=0;i<3;i++){printf(".");sleep(0.5);}
+	
+	printf("%s sta attaccando con:\n\n", dif->nome);	
+	printf("%s", carta2->display[0]); printf("\t\tNome: %s\n", carta2->nome);
+	printf("%s", carta2->display[1]); printf("\t\tPotenza: %d\n", punteggioCarta(carta2));
+	printf("%s", carta2->display[2]); if(strcmp(carta1->arma.nome, "")==0){ printf("\t\tArma : /\n"); }else{printf("\t\tArma : %s\n", carta2->arma.nome);}
+	printf("%s", carta2->display[3]); printf("\t\tStanchezza: %d\n", carta2->stanchezza);
+	
+	Vincitore v = combatti(carta1, carta2);
+	
+	if(v == G1){
+		// Ha vinto att
+		//aggiornaValori(carta1, TRUE, (punteggioCarta(carta1) - puteggioCarta(carta2)));
+		//aggiornaValori(carta2, FALSE, (punteggioCarta(carta1) - puteggioCarta(carta2)));
+		printf("\n\nHa vinto la carta di G1\n\n");
+		
+	}
+	else if(v == G2){
+		// Ha vinto dif
+		//aggiornaValori(carta2, TRUE, (punteggioCarta(carta2) - puteggioCarta(carta1)));
+		//aggiornaValori(carta1, FALSE, (punteggioCarta(carta2) - puteggioCarta(carta1)));
+		printf("\n\nHa vinto la carta di G2\n");
+	}
+	else if(v == PARI){
+		// Passo VINTO ad entrambi in modo da aggiornare solo 1 stanchezza
+		//aggiornaValori(carta1, TRUE, (punteggioCarta(carta1) - puteggioCarta(carta2)));
+		//aggiornaValori(carta2, TRUE, (punteggioCarta(carta1) - puteggioCarta(carta2)));
+		
+		printf("\n\nPareggio.\n");
+	}
+	else{
+		printf("\n\nSi e' verificato un errore.\n'");
+	}
+	
+		
+	
+}
+
 Vincitore combatti(Carta *c1, Carta *c2){
 	int p_c1 = punteggioCarta(c1);
 	int p_c2 = punteggioCarta(c2);
@@ -262,21 +352,25 @@ int getForzaArma(Arma arma){
 	}
 	return forza;
 }
+
 boolean isGameEnd(Giocatore g1, Giocatore g2){
 	if(g1.nc == 0 || g2.nc == 0){
 		return TRUE;
 	}
 	return FALSE;
 }
+
 Giocatore getWinnerGame(Giocatore g1, Giocatore g2){  //prima richiama isGameEnd
 	if(g1.nc == 0){
 		return g2;
 	}
 	return g1;	
 }
+
 int lancioDado(){
 	printf("%d", rand()%6 +1);
 }
+
 void updateDobloniWinner(Giocatore *g){
 	(g->dobloni)++;
 }
