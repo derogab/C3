@@ -50,3 +50,5 @@ x->mazzo[0].forza = 100;
 x->mazzo[0].stanchezza = 0;
 x->mazzo[0].riposo = 0;
 
+
+
