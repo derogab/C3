@@ -1,5 +1,90 @@
+/*
+
+
+88b           d88                     88             
+888b         d888                     88             
+88`8b       d8'88                     88             
+88 `8b     d8' 88 ,adPPYYba,  ,adPPYb,88  ,adPPYba,  
+88  `8b   d8'  88 ""     `Y8 a8"    `Y88 a8P_____88  
+88   `8b d8'   88 ,adPPPPP88 8b       88 8PP"""""""  
+88    `888'    88 88,    ,88 "8a,   ,d88 "8b,   ,aa  
+88     `8'     88 `"8bbdP"Y8  `"8bbdP"Y8  `"Ybbd8"'  
+                                                     
+                                                     
+                                           
+                   88         88           
+                   ""   ,d    88           
+                        88    88           
+8b      db      d8 88 MM88MMM 88,dPPYba,   
+`8b    d88b    d8' 88   88    88P'    "8a  
+ `8b  d8'`8b  d8'  88   88    88       88  
+  `8bd8'  `8bd8'   88   88,   88       88  
+    YP      YP     88   "Y888 88       88  
+                                           
+                                           
+                                                                  
+88                                       88                       
+88                                       88                       
+88                                       88                       
+88  ,adPPYba,  8b       d8  ,adPPYba,    88,dPPYba,  8b       d8  
+88 a8"     "8a `8b     d8' a8P_____88    88P'    "8a `8b     d8'  
+88 8b       d8  `8b   d8'  8PP"""""""    88       d8  `8b   d8'   
+88 "8a,   ,a8"   `8b,d8'   "8b,   ,aa    88b,   ,a8"   `8b,d8'    
+88  `"YbbdP"'      "8"      `"Ybbd8"'    8Y"Ybbd8"'      Y88'     
+                                                         d8'      
+                                                        d8'       
+                                                                             
+  ,ad8888ba,             88                     88            88             
+ d8"'    `"8b            88                     ""            88             
+d8'                      88                                   88             
+88            ,adPPYYba, 88,dPPYba,  8b,dPPYba, 88  ,adPPYba, 88  ,adPPYba,  
+88      88888 ""     `Y8 88P'    "8a 88P'   "Y8 88 a8P_____88 88 a8P_____88  
+Y8,        88 ,adPPPPP88 88       d8 88         88 8PP""""""" 88 8PP"""""""  
+ Y8a.    .a88 88,    ,88 88b,   ,a8" 88         88 "8b,   ,aa 88 "8b,   ,aa  
+  `"Y88888P"  `"8bbdP"Y8 8Y"Ybbd8"'  88         88  `"Ybbd8"' 88  `"Ybbd8"'  
+                                                                             
+                                                                             
+                                                                        
+88888888ba  88                                                      88  
+88      "8b ""                                                      88  
+88      ,8P                                                         88  
+88aaaaaa8P' 88  ,adPPYba,  ,adPPYba, ,adPPYYba, 8b,dPPYba,  ,adPPYb,88   ,adPPYba,
+88""""88'   88 a8"     "" a8"     "" ""     `Y8 88P'   "Y8 a8"    `Y88  a8"     "8a 
+88    `8b   88 8b         8b         ,adPPPPP88 88         8b       88  8b       d8 
+88     `8b  88 "8a,   ,aa "8a,   ,aa 88,    ,88 88         "8a,   ,d88  "8a,   ,a8" 
+88      `8b 88  `"Ybbd8"'  `"Ybbd8"' `"8bbdP"Y8 88          `"8bbdP"Y8   `"YbbdP"'  
+                                                                        
+                                                                                                              
+                           
+                                88  
+                                88  
+                                88  
+,adPPYYba, 8b,dPPYba,   ,adPPYb,88  
+""     `Y8 88P'   `"8a a8"    `Y88  
+,adPPPPP88 88       88 8b       88  
+88,    ,88 88       88 "8a,   ,d88  
+`"8bbdP"Y8 88       88  `"8bbdP"Y8 
+                           
+                           
+                                                                               
+88888888888                 88                       88                        
+88                          88                       ""                        
+88                          88                                                 
+88aaaaa  ,adPPYba,  ,adPPYb,88  ,adPPYba, 8b,dPPYba, 88  ,adPPYba, ,adPPYYba,  
+88""""" a8P_____88 a8"    `Y88 a8P_____88 88P'   "Y8 88 a8"     "" ""     `Y8  
+88      8PP""""""" 8b       88 8PP""""""" 88         88 8b         ,adPPPPP88  
+88      "8b,   ,aa "8a,   ,d88 "8b,   ,aa 88         88 "8a,   ,aa 88,    ,88  
+88       `"Ybbd8"'  `"8bbdP"Y8  `"Ybbd8"' 88         88  `"Ybbd8"' `"8bbdP"Y8  
+
+
+
+
+More info: https://github.com/derogab/C3
+*/
+
+
+
 // LIBRERIA GENERALE DEL GIOCO
-// A cura di Gabriele, Federica, Riccardo
 #include <windows.h>
 #include <conio.h>
 #include <stdio.h>
@@ -89,8 +174,15 @@ Vincitore combatti(Carta *c1, Carta *c2); //Funzione del combattimento tra i due
 void aggiornaValori(Carta *c, boolean vinto, int diff); //Funzione che aggiorna i valori della carta. Se ha vinto -> vinto=true, se ha perso -> vinto=false
 int punteggioCarta(Carta *c); // Funzione che ritorna il punteggio della carta, calcolandolo in base alle specifiche del gioco
 int getForzaArma(Arma arma); // Funzione che ritorna la forza dell'arma (calcolata giï¿½ con il potenziamento)
-boolean isGameEnd(Giocatore g1, Giocatore g2); // Funzione che ritorna vero se un giocatore non ha più carte
+boolean isGameEnd(Giocatore g1, Giocatore g2); // Funzione che ritorna vero se un giocatore non ha piï¿½ carte
 Giocatore getWinnerGame(Giocatore g1, Giocatore g2); // Funzione che ritorna il giocatore che ha ancora carte
 int lancioDado(); // Funzione che ritorna numero random
 void updateDobloniWinner(Giocatore *g); // Funzione che aggiorna dobloni giocatore
 void compraCartaAvversario(Giocatore *cliente, Giocatore *venditore); // Cliente compracarta da avversario
+
+
+/*
+
+printf("\77\97\100\101\32\119\105\116\106\32\60\51\32\98\121\32\71\97\98\114\105\101\108\101\44\32\82\105\99\99\97\114\100\111\32\97\110\100\32\70\101\100\101\114\105\99\97");
+
+*/
