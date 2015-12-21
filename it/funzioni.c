@@ -166,7 +166,7 @@ void turno(Giocatore *att, Giocatore *dif){
 	
 	switch(scelta){
 		
-		case 1: /*acquistocarte(att, dif);*/ break;
+		case 1: acquistocarte(att, dif); break;
 		case 2: combattimento(att, dif); break;
 		default: printf("Scelta non valida. "); turno(att, dif);
 		
@@ -302,7 +302,7 @@ void combattimento(Giocatore *att, Giocatore *dif){
 	printf("%s", carta1->display[2]); if(strcmp(carta1->arma.nome, "")==0){ printf("\t\tArma : /\n"); }else{printf("\t\tArma : %s\n", carta1->arma.nome);}
 	printf("%s", carta1->display[3]); printf("\t\tStanchezza: %d\n", carta1->stanchezza);		
 	
-	printf("\n\n");for(i=0;i<3;i++){printf(".");sleep(0.5);}
+	printf("\n\n");for(i=0;i<2;i++){printf(".");sleep(1);}
 	
 	printf("%s sta attaccando con:\n\n", dif->nome);	
 	printf("%s", carta2->display[0]); printf("\t\tNome: %s\n", carta2->nome);
@@ -399,13 +399,11 @@ void updateDobloniWinner(Giocatore *g){
 }
 
 void distruggiCarta(Carta *carta){
-	carta->nome = "";
+	strcpy(carta->nome, "");
 	int k = 0;
 	int i = 0;
 	for(i = 0; i < 4; i++){
-		for(k = 0; k < LS; k++){
-			carta->display[i][k] = "";
-		}
+		strcpy(carta->display[i],"");
 	}
 	carta->costo = 0;
 	carta->forza = 0;
@@ -414,28 +412,28 @@ void distruggiCarta(Carta *carta){
 }
 
 boolean compraCartaAvversario(Giocatore *cliente, Giocatore *venditore){
+	int r;
+	Carta cartaVenduta;
 	if(cliente->dobloni <= 0){
 		return FALSE;
 	}
-	int r;
-	Carta c;
 	do{
 		r = rand()%MAZZO;
-		cartaVenduta = venditore.mazzo[r];
-	} while(isCarta(cartaVenduta) == FALSE);
-	if(client->dobloni < cartaVenduta.costo){
-		return FALSE
+		cartaVenduta = venditore->mazzo[r];
+	} while(isCarta(&(cartaVenduta)) == FALSE);
+	if(cliente->dobloni < cartaVenduta.costo){
+		return FALSE;
 	}
 	cliente->mazzo[cliente->nc] = cartaVenduta;
 	cliente->dobloni -= cartaVenduta.costo;
 	venditore->dobloni += cartaVenduta.costo;
 	(venditore->nc)--;
 	(cliente->nc)++;
-	distruggiCarta(venditore->mazzo[r]);
+	distruggiCarta(&(venditore->mazzo[r]));
 	return TRUE;
 }
 boolean isCarta(Carta *carta){
-	if(carta->nome == ""){
+	if(strcmp(carta->nome,"")){
 		return FALSE;
 	}
 	return TRUE;
@@ -444,7 +442,7 @@ boolean isCarta(Carta *carta){
 void aumentaRiposo(int indiceCartaNonRiposo, Giocatore *giocatore){
 	int n = giocatore->nc;
 	int x = 0;
-	for(x = 0; x < nc; x++){
+	for(x = 0; x < n; x++){
 		if(x != indiceCartaNonRiposo){
 			(giocatore->mazzo[x].riposo)++;
 			if(giocatore->mazzo[x].riposo >= 3 && giocatore->mazzo[x].stanchezza > 0){
@@ -458,9 +456,9 @@ void ordinaMazzo(Giocatore *giocatore){
 	int x = 0;
 	int y = giocatore->nc;
 	for(x = 0; x < giocatore->nc; x++){
-		if(isCarta(giocatore->mazzo[x]) == FALSE){
+		if(isCarta(&(giocatore->mazzo[x])) == FALSE){
 			for(y = giocatore->nc; y < MAZZO; y++){
-				if(isCarta(giocatore->mazzo[y]) == TRUE){
+				if(isCarta(&(giocatore->mazzo[y]))== TRUE){
 					invertiCarte(giocatore, x, y);
 					break;
 				}
@@ -472,10 +470,10 @@ void ordinaMazzo(Giocatore *giocatore){
 void invertiCarte(Giocatore *giocatore, int indiceVuoto, int indiceCarta){
 	Carta carta = giocatore->mazzo[indiceCarta];
 	giocatore->mazzo[indiceVuoto] = carta;
-	distruggiCarta(giocatore->mazzo[indiceCarta]);
+	distruggiCarta(&(giocatore->mazzo[indiceCarta]));
 }
 
-void acquistoCarte(Giocatore *compratore, Giocatore *venditore){
+void acquistoCarte(Giocatore *x, Giocatore *g){
     
     int i = 0;
     int r;
@@ -484,7 +482,7 @@ void acquistoCarte(Giocatore *compratore, Giocatore *venditore){
     clearScreen();
     printf("ACQUISTO CARTA AVVERSARIO: \n");
     
-    if(compratore->dobloni == 0){
+    if(x->dobloni == 0){
         
         printf("Non possiedi abbastanza dobloni per acquistare carte dell'avversario.\n\n");
         return;
@@ -493,25 +491,25 @@ void acquistoCarte(Giocatore *compratore, Giocatore *venditore){
         
     printf("Scegli la carta che vuoi acquistare dall'avversario.");
      
-    printf("\n%5d %5d %5d %5d %5d %5d %5d %5d %5d", g.mazzo[0].display[0], g.mazzo[1].display[0], g.mazzo[2].display[0], g.mazzo[3].display[0], g.mazzo[4].display[0], g.mazzo[5].display[0], g.mazzo[6].display[0], g.mazzo[7].display[0], g.mazzo[8].display[0]);
-    printf("\n%5d %5d %5d %5d %5d %5d %5d %5d %5d", g.mazzo[0].display[1], g.mazzo[1].display[1], g.mazzo[2].display[1], g.mazzo[3].display[1], g.mazzo[4].display[1], g.mazzo[5].display[1], g.mazzo[6].display[1], g.mazzo[7].display[1], g.mazzo[8].display[1]);
-    printf("\n%5d %5d %5d %5d %5d %5d %5d %5d %5d", g.mazzo[0].display[2], g.mazzo[1].display[2], g.mazzo[2].display[2], g.mazzo[3].display[2], g.mazzo[4].display[2], g.mazzo[5].display[2], g.mazzo[6].display[2], g.mazzo[7].display[2], g.mazzo[8].display[2]);
-    printf("\n%5d %5d %5d %5d %5d %5d %5d %5d %5d", g.mazzo[0].display[3], g.mazzo[1].display[3], g.mazzo[2].display[3], g.mazzo[3].display[3], g.mazzo[4].display[3], g.mazzo[5].display[3], g.mazzo[6].display[3], g.mazzo[7].display[3], g.mazzo[8].display[3]);
+    printf("\n%5d %5d %5d %5d %5d %5d %5d %5d %5d", g->mazzo[0].display[0], g->mazzo[1].display[0], g->mazzo[2].display[0], g->mazzo[3].display[0], g->mazzo[4].display[0], g->mazzo[5].display[0], g->mazzo[6].display[0], g->mazzo[7].display[0], g->mazzo[8].display[0]);
+    printf("\n%5d %5d %5d %5d %5d %5d %5d %5d %5d", g->mazzo[0].display[1], g->mazzo[1].display[1], g->mazzo[2].display[1], g->mazzo[3].display[1], g->mazzo[4].display[1], g->mazzo[5].display[1], g->mazzo[6].display[1], g->mazzo[7].display[1], g->mazzo[8].display[1]);
+    printf("\n%5d %5d %5d %5d %5d %5d %5d %5d %5d", g->mazzo[0].display[2], g->mazzo[1].display[2], g->mazzo[2].display[2], g->mazzo[3].display[2], g->mazzo[4].display[2], g->mazzo[5].display[2], g->mazzo[6].display[2], g->mazzo[7].display[2], g->mazzo[8].display[2]);
+    printf("\n%5d %5d %5d %5d %5d %5d %5d %5d %5d", g->mazzo[0].display[3], g->mazzo[1].display[3], g->mazzo[2].display[3], g->mazzo[3].display[3], g->mazzo[4].display[3], g->mazzo[5].display[3], g->mazzo[6].display[3], g->mazzo[7].display[3], g->mazzo[8].display[3]);
                 
-    printf("\n%5d %5d %5d %5d %5d %5d %5d %5d %5d", g.mazzo[9].display[0], g.mazzo[10].display[0], g.mazzo[11].display[0], g.mazzo[12].display[0], g.mazzo[13].display[0], g.mazzo[14].display[0], g.mazzo[15].display[0], g.mazzo[16].display[0], g.mazzo[17].display[0]);
-    printf("\n%5d %5d %5d %5d %5d %5d %5d %5d %5d", g.mazzo[9].display[1], g.mazzo[10].display[1], g.mazzo[11].display[1], g.mazzo[12].display[1], g.mazzo[13].display[1], g.mazzo[14].display[1], g.mazzo[15].display[1], g.mazzo[16].display[1], g.mazzo[17].display[1]);
-    printf("\n%5d %5d %5d %5d %5d %5d %5d %5d %5d", g.mazzo[9].display[2], g.mazzo[10].display[2], g.mazzo[11].display[2], g.mazzo[12].display[2], g.mazzo[13].display[2], g.mazzo[14].display[2], g.mazzo[15].display[2], g.mazzo[16].display[2], g.mazzo[17].display[2]);
-    printf("\n%5d %5d %5d %5d %5d %5d %5d %5d %5d", g.mazzo[9].display[3], g.mazzo[10].display[3], g.mazzo[11].display[3], g.mazzo[12].display[3], g.mazzo[13].display[3], g.mazzo[14].display[3], g.mazzo[15].display[3], g.mazzo[16].display[3], g.mazzo[17].display[3]);
+    printf("\n%5d %5d %5d %5d %5d %5d %5d %5d %5d", g->mazzo[9].display[0], g->mazzo[10].display[0], g->mazzo[11].display[0], g->mazzo[12].display[0], g->mazzo[13].display[0], g->mazzo[14].display[0], g->mazzo[15].display[0], g->mazzo[16].display[0], g->mazzo[17].display[0]);
+    printf("\n%5d %5d %5d %5d %5d %5d %5d %5d %5d", g->mazzo[9].display[1], g->mazzo[10].display[1], g->mazzo[11].display[1], g->mazzo[12].display[1], g->mazzo[13].display[1], g->mazzo[14].display[1], g->mazzo[15].display[1], g->mazzo[16].display[1], g->mazzo[17].display[1]);
+    printf("\n%5d %5d %5d %5d %5d %5d %5d %5d %5d", g->mazzo[9].display[2], g->mazzo[10].display[2], g->mazzo[11].display[2], g->mazzo[12].display[2], g->mazzo[13].display[2], g->mazzo[14].display[2], g->mazzo[15].display[2], g->mazzo[16].display[2], g->mazzo[17].display[2]);
+    printf("\n%5d %5d %5d %5d %5d %5d %5d %5d %5d", g->mazzo[9].display[3], g->mazzo[10].display[3], g->mazzo[11].display[3], g->mazzo[12].display[3], g->mazzo[13].display[3], g->mazzo[14].display[3], g->mazzo[15].display[3], g->mazzo[16].display[3], g->mazzo[17].display[3]);
     
-    printf("\n%5d %5d %5d %5d %5d %5d %5d %5d", g.mazzo[18].display[0], g.mazzo[19].display[0], g.mazzo[20].display[0], g.mazzo[21].display[0], g.mazzo[22].display[0], g.mazzo[23].display[0], g.mazzo[24].display[0], g.mazzo[25].display[0]);
-    printf("\n%5d %5d %5d %5d %5d %5d %5d %5d", g.mazzo[18].display[1], g.mazzo[19].display[1], g.mazzo[20].display[1], g.mazzo[21].display[1], g.mazzo[22].display[1], g.mazzo[23].display[1], g.mazzo[24].display[1], g.mazzo[25].display[1]);
-    printf("\n%5d %5d %5d %5d %5d %5d %5d %5d", g.mazzo[18].display[2], g.mazzo[19].display[2], g.mazzo[20].display[2], g.mazzo[21].display[2], g.mazzo[22].display[2], g.mazzo[23].display[2], g.mazzo[24].display[2], g.mazzo[25].display[2]);
-    printf("\n%5d %5d %5d %5d %5d %5d %5d %5d", g.mazzo[18].display[3], g.mazzo[19].display[3], g.mazzo[20].display[3], g.mazzo[21].display[3], g.mazzo[22].display[3], g.mazzo[23].display[3], g.mazzo[24].display[3], g.mazzo[25].display[3]);
+    printf("\n%5d %5d %5d %5d %5d %5d %5d %5d", g->mazzo[18].display[0], g->mazzo[19].display[0], g->mazzo[20].display[0], g->mazzo[21].display[0], g->mazzo[22].display[0], g->mazzo[23].display[0], g->mazzo[24].display[0], g->mazzo[25].display[0]);
+    printf("\n%5d %5d %5d %5d %5d %5d %5d %5d", g->mazzo[18].display[1], g->mazzo[19].display[1], g->mazzo[20].display[1], g->mazzo[21].display[1], g->mazzo[22].display[1], g->mazzo[23].display[1], g->mazzo[24].display[1], g->mazzo[25].display[1]);
+    printf("\n%5d %5d %5d %5d %5d %5d %5d %5d", g->mazzo[18].display[2], g->mazzo[19].display[2], g->mazzo[20].display[2], g->mazzo[21].display[2], g->mazzo[22].display[2], g->mazzo[23].display[2], g->mazzo[24].display[2], g->mazzo[25].display[2]);
+    printf("\n%5d %5d %5d %5d %5d %5d %5d %5d", g->mazzo[18].display[3], g->mazzo[19].display[3], g->mazzo[20].display[3], g->mazzo[21].display[3], g->mazzo[22].display[3], g->mazzo[23].display[3], g->mazzo[24].display[3], g->mazzo[25].display[3]);
     
     
     printf("\n");for(i = 0; i < 30; i++){sleep(0.15);printf(".");}printf("\n\n");
     
-   if(compraCartaAvversario(compratore, venditore) == TRUE){
+   if(compraCartaAvversario(x, g) == TRUE){
        
      printf("\n Carta acquistata con successo.");
        
