@@ -395,9 +395,35 @@ Giocatore getWinnerGame(Giocatore g1, Giocatore g2){  //prima richiama isGameEnd
 }
 
 int lancioDado(){
-	printf("%d", rand()%6 +1);
+	int r= rand()%6 +1;
+	printf("%d", r);
+	return r;
 }
 
 void updateDobloniWinner(Giocatore *g){
 	(g->dobloni)++;
+}
+void distruggiCarta(Carta *carta){
+	carta->nome = "";
+	int k = 0;
+	int i = 0;
+	for(i = 0; i < 4; i++){
+		for(k = 0; k < LS; k++){
+			carta->display[i][k] = "";
+		}
+	}
+	carta->costo = 0;
+	carta->forza = 0;
+	carta->stanchezza = 0;
+	carta->riposo = 0;
+}
+void compraCartaAvversario(Giocatore *cliente, Giocatore *venditore){
+	int r = rand()%(venditore->nc);
+	Carta cartaVenduta = venditore->mazzo[r];
+	cliente->mazzo[cliente->nc] = cartaVenduta;
+	cliente->dobloni -= cartaVenduta.costo;
+	venditore->dobloni += cartaVendura.costo;
+	(venditore->nc)--;
+	(cliente->nc)++;
+	distruggiCarta(venditore->mazzo[r]);
 }
