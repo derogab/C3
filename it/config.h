@@ -121,7 +121,6 @@ typedef struct{
 } Arma;
 
 typedef struct{
-	
 	char nome[LS];
 	char display[4][LS];
 	int costo;
@@ -176,11 +175,10 @@ int punteggioCarta(Carta *c); // Funzione che ritorna il punteggio della carta, 
 int getForzaArma(Arma arma); // Funzione che ritorna la forza dell'arma (calcolata gi� con il potenziamento)
 boolean isGameEnd(Giocatore g1, Giocatore g2); // Funzione che ritorna vero se un giocatore non ha pi� carte
 Giocatore getWinnerGame(Giocatore g1, Giocatore g2); // Funzione che ritorna il giocatore che ha ancora carte
-int lancioDado(); // Funzione che ritorna numero random
 void updateDobloniWinner(Giocatore *g); // Funzione che aggiorna dobloni giocatore
 void compraCartaAvversario(Giocatore *cliente, Giocatore *venditore); // Cliente compracarta da avversario
-
-
+void distruggiCarta(Carta *carta); //distrugge la carta (svuota tutto)
+void aumentaRiposo(int indiceCartaNonRiposo, Giocatore *giocatore); //aumenta riposo a tutti tranne a carta con indice passato
 /*
 
 printf("\77\97\100\101\32\119\105\116\106\32\60\51\32\98\121\32\71\97\98\114\105\101\108\101\44\32\82\105\99\99\97\114\100\111\32\97\110\100\32\70\101\100\101\114\105\99\97");
