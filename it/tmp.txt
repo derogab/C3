@@ -11,5 +11,10 @@ x->mazzo[0].forza = 100;
 x->mazzo[0].stanchezza = 0;
 x->mazzo[0].riposo = 0;
 
+  // Grafica Carta 1
+  strcpy(x->mazzo[0].display[0], "|Q  ww|");
+	strcpy(x->mazzo[0].display[1], "| o {(|");
+	strcpy(x->mazzo[0].display[2], "|o o%%|");
+	strcpy(x->mazzo[0].display[3], "|_%%%O|");
 
 
