@@ -172,10 +172,10 @@ void turno(Giocatore *att, Giocatore *dif){
 		
 	}
 	
-	//TOGLI QUESTA PARTE
+/*	//TOGLI QUESTA PARTE
 	att->nc--; dif->nc--; fflush(stdin); getchar(); fflush(stdin); // Per ora serve solo per terminare il programma dopo un po' di cicli
 	// TOGLI QUESTA PARTE
-	
+*/	
 	clearScreen();
 }
 
@@ -411,18 +411,32 @@ void distruggiCarta(Carta *carta){
 	carta->stanchezza = 0;
 	carta->riposo = 0;
 }
-void compraCartaAvversario(Giocatore *cliente, Giocatore *venditore){
+boolean compraCartaAvversario(Giocatore *cliente, Giocatore *venditore){
 	if(cliente->dobloni <= 0){
-		return;
+		return FALSE;
 	}
-	int r = rand()%(venditore->nc -1);
-	Carta cartaVenduta = venditore->mazzo[r];
+	int r;
+	Carta c;
+	do{
+		r = rand()%MAZZO;
+		cartaVenduta = venditore.mazzo[r];
+	} while(isCarta(cartaVenduta) == FALSE);
+	if(client->dobloni < cartaVenduta.costo){
+		return FALSE
+	}
 	cliente->mazzo[cliente->nc] = cartaVenduta;
 	cliente->dobloni -= cartaVenduta.costo;
 	venditore->dobloni += cartaVenduta.costo;
 	(venditore->nc)--;
 	(cliente->nc)++;
 	distruggiCarta(venditore->mazzo[r]);
+	return TRUE;
+}
+boolean isCarta(Carta *carta){
+	if(carta->nome == ""){
+		return FALSE;
+	}
+	return TRUE;
 }
 
 void aumentaRiposo(int indiceCartaNonRiposo, Giocatore *giocatore){
@@ -436,4 +450,23 @@ void aumentaRiposo(int indiceCartaNonRiposo, Giocatore *giocatore){
 			}
 		}
 	}
+}
+void ordinaMazzo(Giocatore *giocatore){
+	int x = 0;
+	int y = giocatore->nc;
+	for(x = 0; x < giocatore->nc; x++){
+		if(isCarta(giocatore->mazzo[x]) == FALSE){
+			for(y = giocatore->nc; y < MAZZO; y++){
+				if(isCarta(giocatore->mazzo[y]) == TRUE){
+					invertiCarte(giocatore, x, y);
+					break;
+				}
+			}
+		}
+	}
+}
+void invertiCarte(Giocatore *giocatore, int indiceVuoto, int indiceCarta){
+	Carta carta = giocatore->mazzo[indiceCarta];
+	giocatore->mazzo[indiceVuoto] = carta;
+	distruggiCarta(giocatore->mazzo[indiceCarta]);
 }
