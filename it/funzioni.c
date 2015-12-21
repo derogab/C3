@@ -397,6 +397,7 @@ Giocatore getWinnerGame(Giocatore g1, Giocatore g2){  //prima richiama isGameEnd
 void updateDobloniWinner(Giocatore *g){
 	(g->dobloni)++;
 }
+
 void distruggiCarta(Carta *carta){
 	carta->nome = "";
 	int k = 0;
@@ -411,6 +412,7 @@ void distruggiCarta(Carta *carta){
 	carta->stanchezza = 0;
 	carta->riposo = 0;
 }
+
 boolean compraCartaAvversario(Giocatore *cliente, Giocatore *venditore){
 	if(cliente->dobloni <= 0){
 		return FALSE;
@@ -451,6 +453,7 @@ void aumentaRiposo(int indiceCartaNonRiposo, Giocatore *giocatore){
 		}
 	}
 }
+
 void ordinaMazzo(Giocatore *giocatore){
 	int x = 0;
 	int y = giocatore->nc;
@@ -465,8 +468,62 @@ void ordinaMazzo(Giocatore *giocatore){
 		}
 	}
 }
+
 void invertiCarte(Giocatore *giocatore, int indiceVuoto, int indiceCarta){
 	Carta carta = giocatore->mazzo[indiceCarta];
 	giocatore->mazzo[indiceVuoto] = carta;
 	distruggiCarta(giocatore->mazzo[indiceCarta]);
+}
+
+void acquistoCarte(Giocatore *compratore, Giocatore *venditore){
+    
+    int i = 0;
+    int r;
+    Carta c;
+    
+    clearScreen();
+    printf("ACQUISTO CARTA AVVERSARIO: \n");
+    
+    if(compratore->dobloni == 0){
+        
+        printf("Non possiedi abbastanza dobloni per acquistare carte dell'avversario.\n\n");
+        return;
+    }
+    
+        
+    printf("Scegli la carta che vuoi acquistare dall'avversario.");
+     
+    printf("\n%5d %5d %5d %5d %5d %5d %5d %5d %5d", g.mazzo[0].display[0], g.mazzo[1].display[0], g.mazzo[2].display[0], g.mazzo[3].display[0], g.mazzo[4].display[0], g.mazzo[5].display[0], g.mazzo[6].display[0], g.mazzo[7].display[0], g.mazzo[8].display[0]);
+    printf("\n%5d %5d %5d %5d %5d %5d %5d %5d %5d", g.mazzo[0].display[1], g.mazzo[1].display[1], g.mazzo[2].display[1], g.mazzo[3].display[1], g.mazzo[4].display[1], g.mazzo[5].display[1], g.mazzo[6].display[1], g.mazzo[7].display[1], g.mazzo[8].display[1]);
+    printf("\n%5d %5d %5d %5d %5d %5d %5d %5d %5d", g.mazzo[0].display[2], g.mazzo[1].display[2], g.mazzo[2].display[2], g.mazzo[3].display[2], g.mazzo[4].display[2], g.mazzo[5].display[2], g.mazzo[6].display[2], g.mazzo[7].display[2], g.mazzo[8].display[2]);
+    printf("\n%5d %5d %5d %5d %5d %5d %5d %5d %5d", g.mazzo[0].display[3], g.mazzo[1].display[3], g.mazzo[2].display[3], g.mazzo[3].display[3], g.mazzo[4].display[3], g.mazzo[5].display[3], g.mazzo[6].display[3], g.mazzo[7].display[3], g.mazzo[8].display[3]);
+                
+    printf("\n%5d %5d %5d %5d %5d %5d %5d %5d %5d", g.mazzo[9].display[0], g.mazzo[10].display[0], g.mazzo[11].display[0], g.mazzo[12].display[0], g.mazzo[13].display[0], g.mazzo[14].display[0], g.mazzo[15].display[0], g.mazzo[16].display[0], g.mazzo[17].display[0]);
+    printf("\n%5d %5d %5d %5d %5d %5d %5d %5d %5d", g.mazzo[9].display[1], g.mazzo[10].display[1], g.mazzo[11].display[1], g.mazzo[12].display[1], g.mazzo[13].display[1], g.mazzo[14].display[1], g.mazzo[15].display[1], g.mazzo[16].display[1], g.mazzo[17].display[1]);
+    printf("\n%5d %5d %5d %5d %5d %5d %5d %5d %5d", g.mazzo[9].display[2], g.mazzo[10].display[2], g.mazzo[11].display[2], g.mazzo[12].display[2], g.mazzo[13].display[2], g.mazzo[14].display[2], g.mazzo[15].display[2], g.mazzo[16].display[2], g.mazzo[17].display[2]);
+    printf("\n%5d %5d %5d %5d %5d %5d %5d %5d %5d", g.mazzo[9].display[3], g.mazzo[10].display[3], g.mazzo[11].display[3], g.mazzo[12].display[3], g.mazzo[13].display[3], g.mazzo[14].display[3], g.mazzo[15].display[3], g.mazzo[16].display[3], g.mazzo[17].display[3]);
+    
+    printf("\n%5d %5d %5d %5d %5d %5d %5d %5d", g.mazzo[18].display[0], g.mazzo[19].display[0], g.mazzo[20].display[0], g.mazzo[21].display[0], g.mazzo[22].display[0], g.mazzo[23].display[0], g.mazzo[24].display[0], g.mazzo[25].display[0]);
+    printf("\n%5d %5d %5d %5d %5d %5d %5d %5d", g.mazzo[18].display[1], g.mazzo[19].display[1], g.mazzo[20].display[1], g.mazzo[21].display[1], g.mazzo[22].display[1], g.mazzo[23].display[1], g.mazzo[24].display[1], g.mazzo[25].display[1]);
+    printf("\n%5d %5d %5d %5d %5d %5d %5d %5d", g.mazzo[18].display[2], g.mazzo[19].display[2], g.mazzo[20].display[2], g.mazzo[21].display[2], g.mazzo[22].display[2], g.mazzo[23].display[2], g.mazzo[24].display[2], g.mazzo[25].display[2]);
+    printf("\n%5d %5d %5d %5d %5d %5d %5d %5d", g.mazzo[18].display[3], g.mazzo[19].display[3], g.mazzo[20].display[3], g.mazzo[21].display[3], g.mazzo[22].display[3], g.mazzo[23].display[3], g.mazzo[24].display[3], g.mazzo[25].display[3]);
+    
+    
+    printf("\n");for(i = 0; i < 30; i++){sleep(0.15);printf(".");}printf("\n\n");
+    
+   if(compraCartaAvversario(compratore, venditore) == TRUE){
+       
+     printf("\n Carta acquistata con successo.");
+       
+   }
+   else{
+       
+       printf("Non possiedi abbastanza dobloni per acquistare questa carta dell'avversario.\n\n");
+       
+   }
+   
+     
+      
+    
+    
 }
