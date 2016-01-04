@@ -1,29 +1,12 @@
-/* Carta 1 prova 
-strcpy(x->mazzo[0].nome, "Nome");
-x->mazzo[0].costo = 21;
-strcpy(x->mazzo[0].arma.nome, "NomeA");
-x->mazzo[0].arma.forza = 200;
-strcpy(x->mazzo[0].arma.potenziamento.nome, "NomeP");
-x->mazzo[0].arma.potenziamento.attivo = FALSE;
-x->mazzo[0].arma.potenziamento.punti = 12;
-x->mazzo[0].arma.potenziamento.durata = 5;
-x->mazzo[0].forza = 100;
-x->mazzo[0].stanchezza = 0;
-x->mazzo[0].riposo = 0;
-// Grafica Carta 1
-strcpy(x->mazzo[0].display[0], "|Q  ww|");
-strcpy(x->mazzo[0].display[1], "| o {(|");
-strcpy(x->mazzo[0].display[2], "|o o%%|");
-strcpy(x->mazzo[0].display[3], "|_%%%O|");*/
 
 //carta 1
 strcpy(x->mazzo[0].nome, "Sciamano Goblin");
-x->mazzo[0].costo = 21;
+x->mazzo[0].costo = 20;
 strcpy(x->mazzo[0].arma.nome, "Bastone Morghur");
-x->mazzo[0].arma.forza = 200;
+x->mazzo[0].arma.forza = 150;
 strcpy(x->mazzo[0].arma.potenziamento.nome, "Funghi allucinogeni");
 x->mazzo[0].arma.potenziamento.attivo = FALSE;
-x->mazzo[0].arma.potenziamento.punti = 12;
+x->mazzo[0].arma.potenziamento.punti = 8;
 x->mazzo[0].arma.potenziamento.durata = 5;
 x->mazzo[0].forza = 100;
 x->mazzo[0].stanchezza = 0;
@@ -36,12 +19,12 @@ strcpy(x->mazzo[0].display[3], "| /_\ |");
 
 //carta 2
 strcpy(x->mazzo[1].nome, "Troll di caverna");
-x->mazzo[1].costo = 21;
+x->mazzo[1].costo = 18;
 strcpy(x->mazzo[1].arma.nome, "Zanna di Gigante");
-x->mazzo[1].arma.forza = 200;
+x->mazzo[1].arma.forza = 120;
 strcpy(x->mazzo[1].arma.potenziamento.nome, "Clava");
 x->mazzo[1].arma.potenziamento.attivo = FALSE;
-x->mazzo[1].arma.potenziamento.punti = 12;
+x->mazzo[1].arma.potenziamento.punti = 3;
 x->mazzo[1].arma.potenziamento.durata = 5;
 x->mazzo[1].forza = 100;
 x->mazzo[1].stanchezza = 0;
@@ -56,10 +39,10 @@ strcpy(x->mazzo[1].display[3], "|   |||");
 strcpy(x->mazzo[2].nome, “Arcimago Elfo”);
 x->mazzo[2].costo = 21;
 strcpy(x->mazzo[2].arma.nome, “Arco della Luna”);
-x->mazzo[2].arma.forza = 200;
+x->mazzo[2].arma.forza = 170;
 strcpy(x->mazzo[2].arma.potenziamento.nome, “Grifone”);
 x->mazzo[2].arma.potenziamento.attivo = FALSE;
-x->mazzo[2].arma.potenziamento.punti = 12;
+x->mazzo[2].arma.potenziamento.punti = 10;
 x->mazzo[2].arma.potenziamento.durata = 5;
 x->mazzo[2].forza = 100;
 x->mazzo[2].stanchezza = 0;
@@ -72,7 +55,7 @@ strcpy(x->mazzo[2].display[3], “| /   |");
 
 //carta 4
 strcpy(x->mazzo[3].nome, “Banshee”);
-x->mazzo[3].costo = 21;
+x->mazzo[3].costo = 25;
 strcpy(x->mazzo[3].arma.nome, “Urlo paralizzante”);
 x->mazzo[3].arma.forza = 200;
 strcpy(x->mazzo[3].arma.potenziamento.nome, “Lama spettrale”);
@@ -90,12 +73,12 @@ strcpy(x->mazzo[3].display[3], “|  \/ |");
 
 //carta 5
 strcpy(x->mazzo[4].nome, “Necromante”);
-x->mazzo[4].costo = 21;
+x->mazzo[4].costo = 22;
 strcpy(x->mazzo[4].arma.nome, “Tomo dell’evocazione”);
-x->mazzo[4].arma.forza = 200;
+x->mazzo[4].arma.forza = 180;
 strcpy(x->mazzo[4].arma.potenziamento.nome, “Pegaso Nero”);
 x->mazzo[4].arma.potenziamento.attivo = FALSE;
-x->mazzo[4].arma.potenziamento.punti = 12;
+x->mazzo[4].arma.potenziamento.punti = 15;
 x->mazzo[4].arma.potenziamento.durata = 5;
 x->mazzo[4].forza = 100;
 x->mazzo[4].stanchezza = 0;
@@ -108,12 +91,12 @@ strcpy(x->mazzo[4].display[3], “||_|/ |");
                         
 //carta 6
 strcpy(x->mazzo[5].nome, “Incantatrice Oscura”);
-x->mazzo[5].costo = 21;
+x->mazzo[5].costo = 18;
 strcpy(x->mazzo[5].arma.nome, “Pugnale del Sacrificio”);
-x->mazzo[5].arma.forza = 200;
+x->mazzo[5].arma.forza = 180;
 strcpy(x->mazzo[5].arma.potenziamento.nome, “Altare Sanguinante”);
 x->mazzo[5].arma.potenziamento.attivo = FALSE;
-x->mazzo[5].arma.potenziamento.punti = 12;
+x->mazzo[5].arma.potenziamento.punti = 7;
 x->mazzo[5].arma.potenziamento.durata = 5;
 x->mazzo[5].forza = 100;
 x->mazzo[5].stanchezza = 0;
@@ -126,12 +109,12 @@ strcpy(x->mazzo[5].display[3], “| :#| |");
                         
 //carta 7
 strcpy(x->mazzo[6].nome, “Ingegnere Nano”);
-x->mazzo[6].costo = 21;
+x->mazzo[6].costo = 15;
 strcpy(x->mazzo[6].arma.nome, “Cannone Lanciafiamme”);
-x->mazzo[6].arma.forza = 200;
+x->mazzo[6].arma.forza = 140;
 strcpy(x->mazzo[6].arma.potenziamento.nome, “Archibugio dei Nani”);
 x->mazzo[6].arma.potenziamento.attivo = FALSE;
-x->mazzo[6].arma.potenziamento.punti = 12;
+x->mazzo[6].arma.potenziamento.punti = 18;
 x->mazzo[6].arma.potenziamento.durata = 5;
 x->mazzo[6].forza = 100;
 x->mazzo[6].stanchezza = 0;
@@ -144,12 +127,12 @@ strcpy(x->mazzo[6].display[3], “|~    |");
 
 //carta 8
 strcpy(x->mazzo[7].nome, “Scheletro”);
-x->mazzo[7].costo = 21;
+x->mazzo[7].costo = 12;
 strcpy(x->mazzo[7].arma.nome, “Cavallo spettrale”);
-x->mazzo[7].arma.forza = 200;
+x->mazzo[7].arma.forza = 130;
 strcpy(x->mazzo[7].arma.potenziamento.nome, “Lanciatore di ossa”);
 x->mazzo[7].arma.potenziamento.attivo = FALSE;
-x->mazzo[7].arma.potenziamento.punti = 12;
+x->mazzo[7].arma.potenziamento.punti = 4;
 x->mazzo[7].arma.potenziamento.durata = 5;
 x->mazzo[7].forza = 100;
 x->mazzo[7].stanchezza = 0;
@@ -162,12 +145,12 @@ strcpy(x->mazzo[7].display[3], “|oo   |");
 
 //carta 9
 strcpy(x->mazzo[8].nome, “Re Spettro”);
-x->mazzo[8].costo = 21;
+x->mazzo[8].costo = 19;
 strcpy(x->mazzo[8].arma.nome, “Lama Ululante”);
-x->mazzo[8].arma.forza = 200;
+x->mazzo[8].arma.forza = 125;
 strcpy(x->mazzo[8].arma.potenziamento.nome, “Carro dei cadaveri”);
 x->mazzo[8].arma.potenziamento.attivo = FALSE;
-x->mazzo[8].arma.potenziamento.punti = 12;
+x->mazzo[8].arma.potenziamento.punti = 5;
 x->mazzo[8].arma.potenziamento.durata = 5;
 x->mazzo[8].forza = 100;
 x->mazzo[8].stanchezza = 0;
@@ -180,12 +163,12 @@ strcpy(x->mazzo[8].display[3], “| \/  |");
 
 //carta 10
 strcpy(x->mazzo[9].nome, “Uomo Bestia”);
-x->mazzo[9].costo = 21;
+x->mazzo[9].costo = 9;
 strcpy(x->mazzo[9].arma.nome, “Doppia Ascia”);
-x->mazzo[9].arma.forza = 200;
+x->mazzo[9].arma.forza = 160;
 strcpy(x->mazzo[9].arma.potenziamento.nome, “Cinghiale”);
 x->mazzo[9].arma.potenziamento.attivo = FALSE;
-x->mazzo[9].arma.potenziamento.punti = 12;
+x->mazzo[9].arma.potenziamento.punti = 6;
 x->mazzo[9].arma.potenziamento.durata = 5;
 x->mazzo[9].forza = 100;
 x->mazzo[9].stanchezza = 0;
@@ -198,12 +181,12 @@ strcpy(x->mazzo[9].display[3], “|   |||");
              
 //carta 11
 strcpy(x->mazzo[10].nome, “Guerriero del Caos”);
-x->mazzo[10].costo = 21;
+x->mazzo[10].costo = 23;
 strcpy(x->mazzo[10].arma.nome, “Lancia Oscura”);
-x->mazzo[10].arma.forza = 200;
+x->mazzo[10].arma.forza = 190;
 strcpy(x->mazzo[10].arma.potenziamento.nome, “Destriero dell’Apocalisse”);
 x->mazzo[10].arma.potenziamento.attivo = FALSE;
-x->mazzo[10].arma.potenziamento.punti = 12;
+x->mazzo[10].arma.potenziamento.punti = 10;
 x->mazzo[10].arma.potenziamento.durata = 5;
 x->mazzo[10].forza = 100;
 x->mazzo[10].stanchezza = 0;
@@ -216,12 +199,12 @@ strcpy(x->mazzo[10].display[3], “|   |||");
        
 //carta 12
 strcpy(x->mazzo[11].nome, “Ghoul”);
-x->mazzo[11].costo = 21;
+x->mazzo[11].costo = 24;
 strcpy(x->mazzo[11].arma.nome, “Spada arrugginita”);
 x->mazzo[11].arma.forza = 200;
 strcpy(x->mazzo[11].arma.potenziamento.nome, “Emerge dal terreno”);
 x->mazzo[11].arma.potenziamento.attivo = FALSE;
-x->mazzo[11].arma.potenziamento.punti = 12;
+x->mazzo[11].arma.potenziamento.punti = 8;
 x->mazzo[11].arma.potenziamento.durata = 5;
 x->mazzo[11].forza = 100;
 x->mazzo[11].stanchezza = 0;
@@ -234,12 +217,12 @@ strcpy(x->mazzo[11].display[3], “| \/  |");
 
 //carta 13
 strcpy(x->mazzo[12].nome, “Demone”);
-x->mazzo[12].costo = 21;
+x->mazzo[12].costo = 20;
 strcpy(x->mazzo[12].arma.nome, “Lama Eterea”);
-x->mazzo[12].arma.forza = 200;
+x->mazzo[12].arma.forza = 150;
 strcpy(x->mazzo[12].arma.potenziamento.nome, “Divoratore”);
 x->mazzo[12].arma.potenziamento.attivo = FALSE;
-x->mazzo[12].arma.potenziamento.punti = 12;
+x->mazzo[12].arma.potenziamento.punti = 3;
 x->mazzo[12].arma.potenziamento.durata = 5;
 x->mazzo[12].forza = 100;
 x->mazzo[12].stanchezza = 0;
@@ -249,9 +232,10 @@ strcpy(x->mazzo[12].display[0], "|_{ }_ |”);
 strcpy(x->mazzo[12].display[1], “| ):( |”);
 strcpy(x->mazzo[12].display[2], "| ):( |”);
 strcpy(x->mazzo[12].display[3], “| \/  |"); 
+
 //carta 14
 strcpy(y->mazzo[0].nome, “Nogitsune”);
-y->mazzo[0].costo = 21;
+y->mazzo[0].costo = 24;
 strcpy(y->mazzo[0].arma.nome, “Possiede e inganna le persone”);
 y->mazzo[0].arma.forza = 200;
 strcpy(y->mazzo[0].arma.potenziamento.nome, “Invisibile agli occhi“);
@@ -261,7 +245,7 @@ y->mazzo[0].arma.potenziamento.durata = 5;
 y->mazzo[0].forza = 100;
 y->mazzo[0].stanchezza = 0;
 y->mazzo[0].riposo = 0;
-// Grafica Carta 1
+// Grafica Carta 14
 strcpy(y->mazzo[0].display[0], “|^  ^ |");
 strcpy(y->mazzo[0].display[1], “| ??  |");
 strcpy(y->mazzo[0].display[2], “| —-  |”);
@@ -269,17 +253,17 @@ strcpy(y->mazzo[0].display[3], “|  ?  |");
 
 //carta 15
 strcpy(y->mazzo[1].nome, “Minotauro”);
-y->mazzo[1].costo = 21;
+y->mazzo[1].costo = 8;
 strcpy(y->mazzo[1].arma.nome, “Ascia di Zanna”);
-y->mazzo[1].arma.forza = 200;
+y->mazzo[1].arma.forza = 120;
 strcpy(y->mazzo[1].arma.potenziamento.nome, “Corno della grande Caccia ”);
 y->mazzo[1].arma.potenziamento.attivo = FALSE;
-y->mazzo[1].arma.potenziamento.punti = 12;
+y->mazzo[1].arma.potenziamento.punti = 3;
 y->mazzo[1].arma.potenziamento.durata = 5;
 y->mazzo[1].forza = 100;
 y->mazzo[1].stanchezza = 0;
 y->mazzo[1].riposo = 0;
-// Grafica Carta 2
+// Grafica Carta 15
 strcpy(y->mazzo[1].display[0], "| /-|||");
 strcpy(y->mazzo[1].display[1], "|(  |||");
 strcpy(y->mazzo[1].display[2], "| \-|||");
@@ -287,12 +271,12 @@ strcpy(y->mazzo[1].display[3], "|   |||");
 
 //carta 16
 strcpy(y->mazzo[2].nome, “Stegadonte”);
-y->mazzo[2].costo = 21;
+y->mazzo[2].costo = 16;
 strcpy(y->mazzo[2].arma.nome, “Arco Gigante”);
-y->mazzo[2].arma.forza = 200;
+y->mazzo[2].arma.forza = 130;
 strcpy(y->mazzo[2].arma.potenziamento.nome, “Pelle a Scaglie”);
 y->mazzo[2].arma.potenziamento.attivo = FALSE;
-y->mazzo[2].arma.potenziamento.punti = 12;
+y->mazzo[2].arma.potenziamento.punti = 7;
 y->mazzo[2].arma.potenziamento.durata = 5;
 y->mazzo[2].forza = 100;
 y->mazzo[2].stanchezza = 0;
@@ -305,9 +289,9 @@ strcpy(y->mazzo[2].display[3], “| /   |");
 
 //carta 17
 strcpy(y->mazzo[3].nome, “Uomo Ratto”);
-y->mazzo[3].costo = 21;
+y->mazzo[3].costo = 14;
 strcpy(y->mazzo[3].arma.nome, “Pugnali avvelenati”);
-y->mazzo[3].arma.forza = 200;
+y->mazzo[3].arma.forza = 145;
 strcpy(y->mazzo[3].arma.potenziamento.nome, “Peste Bubbonica”);
 y->mazzo[3].arma.potenziamento.attivo = FALSE;
 y->mazzo[3].arma.potenziamento.punti = 12;
@@ -328,7 +312,7 @@ strcpy(y->mazzo[4].arma.nome, “Lingue di Fuoco”);
 y->mazzo[4].arma.forza = 200;
 strcpy(y->mazzo[4].arma.potenziamento.nome, “Scaglie rotanti”);
 y->mazzo[4].arma.potenziamento.attivo = FALSE;
-y->mazzo[4].arma.potenziamento.punti = 12;
+y->mazzo[4].arma.potenziamento.punti = 14;
 y->mazzo[4].arma.potenziamento.durata = 5;
 y->mazzo[4].forza = 100;
 y->mazzo[4].stanchezza = 0;
@@ -342,12 +326,12 @@ strcpy(y->mazzo[4].display[3], “|( # )|");
                           
 //carta 19
 strcpy(y->mazzo[5].nome, “Sauro Anziano”);
-y->mazzo[5].costo = 21;
+y->mazzo[5].costo = 17;
 strcpy(y->mazzo[5].arma.nome, “Lama della Realtà”);
-y->mazzo[5].arma.forza = 200;
+y->mazzo[5].arma.forza = 160;
 strcpy(y->mazzo[5].arma.potenziamento.nome, “Carnasauro”);
 y->mazzo[5].arma.potenziamento.attivo = FALSE;
-y->mazzo[5].arma.potenziamento.punti = 12;
+y->mazzo[5].arma.potenziamento.punti = 13;
 y->mazzo[5].arma.potenziamento.durata = 5;
 y->mazzo[5].forza = 100;
 y->mazzo[5].stanchezza = 0;
@@ -360,12 +344,12 @@ strcpy(y->mazzo[5].display[3], “| :#| |");
                         
 //carta 20
 strcpy(y->mazzo[6].nome, “Kanima”);
-y->mazzo[6].costo = 21;
+y->mazzo[6].costo = 24;
 strcpy(y->mazzo[6].arma.nome, “veleno paralizzante”);
-y->mazzo[6].arma.forza = 200;
+y->mazzo[6].arma.forza = 205;
 strcpy(y->mazzo[6].arma.potenziamento.nome, “Squame taglienti”);
 y->mazzo[6].arma.potenziamento.attivo = FALSE;
-y->mazzo[6].arma.potenziamento.punti = 12;
+y->mazzo[6].arma.potenziamento.punti = 6;
 y->mazzo[6].arma.potenziamento.durata = 5;
 y->mazzo[6].forza = 100;
 y->mazzo[6].stanchezza = 0;
@@ -378,12 +362,12 @@ strcpy(y->mazzo[6].display[3], “|\_/ |");
 
 //carta 21
 strcpy(y->mazzo[7].nome, “Signore della Peste”);
-y->mazzo[7].costo = 21;
+y->mazzo[7].costo = 9;
 strcpy(y->mazzo[7].arma.nome, “Campana del Destino”);
-y->mazzo[7].arma.forza = 200;
+y->mazzo[7].arma.forza = 150;
 strcpy(y->mazzo[7].arma.potenziamento.nome, “Globo divinatorio”);
 y->mazzo[7].arma.potenziamento.attivo = FALSE;
-y->mazzo[7].arma.potenziamento.punti = 12;
+y->mazzo[7].arma.potenziamento.punti = 11;
 y->mazzo[7].arma.potenziamento.durata = 5;
 y->mazzo[7].forza = 100;
 y->mazzo[7].stanchezza = 0;
@@ -401,7 +385,7 @@ strcpy(y->mazzo[8].arma.nome, “Pugnale di Ossa”);
 y->mazzo[8].arma.forza = 200;
 strcpy(y->mazzo[8].arma.potenziamento.nome, “Ricostruzione Ossea”);
 y->mazzo[8].arma.potenziamento.attivo = FALSE;
-y->mazzo[8].arma.potenziamento.punti = 12;
+y->mazzo[8].arma.potenziamento.punti = 10;
 y->mazzo[8].arma.potenziamento.durata = 5;
 y->mazzo[8].forza = 100;
 y->mazzo[8].stanchezza = 0;
@@ -414,12 +398,12 @@ strcpy(y->mazzo[8].display[3], “| 00  |");
 
 //carta 23
 strcpy(y->mazzo[9].nome, “Kraken”);
-y->mazzo[9].costo = 21;
+y->mazzo[9].costo = 24;
 strcpy(y->mazzo[9].arma.nome, “Tentacoli Anneganti”);
-y->mazzo[9].arma.forza = 200;
+y->mazzo[9].arma.forza = 250;
 strcpy(y->mazzo[9].arma.potenziamento.nome, “Inchiostro confusionale”);
 y->mazzo[9].arma.potenziamento.attivo = FALSE;
-y->mazzo[9].arma.potenziamento.punti = 12;
+y->mazzo[9].arma.potenziamento.punti = 16;
 y->mazzo[9].arma.potenziamento.durata = 5;
 y->mazzo[9].forza = 100;
 y->mazzo[9].stanchezza = 0;
@@ -432,12 +416,12 @@ strcpy(y->mazzo[9].display[3], “|~~~~~|");
 
 //carta 24
 strcpy(y->mazzo[10].nome, “Arpia”);
-y->mazzo[10].costo = 21;
+y->mazzo[10].costo = 5;
 strcpy(y->mazzo[10].arma.nome, “Artigli”);
-y->mazzo[10].arma.forza = 200;
+y->mazzo[10].arma.forza = 140;
 strcpy(y->mazzo[10].arma.potenziamento.nome, “Canto ammaliante”);
 y->mazzo[10].arma.potenziamento.attivo = FALSE;
-y->mazzo[10].arma.potenziamento.punti = 12;
+y->mazzo[10].arma.potenziamento.punti = 15;
 y->mazzo[10].arma.potenziamento.durata = 5;
 y->mazzo[10].forza = 100;
 y->mazzo[10].stanchezza = 0;
@@ -450,12 +434,12 @@ strcpy(y->mazzo[10].display[3], “|(\__(|”);
        
 //carta 25
 strcpy(y->mazzo[11].nome, “Coccatrice”);
-y->mazzo[11].costo = 21;
+y->mazzo[11].costo = 26;
 strcpy(y->mazzo[11].arma.nome, “Sguardo Pietrificante”);
-y->mazzo[11].arma.forza = 200;
+y->mazzo[11].arma.forza = 210;
 strcpy(y->mazzo[11].arma.potenziamento.nome, “Alito velenoso”);
 y->mazzo[11].arma.potenziamento.attivo = FALSE;
-y->mazzo[11].arma.potenziamento.punti = 12;
+y->mazzo[11].arma.potenziamento.punti = 10;
 y->mazzo[11].arma.potenziamento.durata = 5;
 y->mazzo[11].forza = 100;
 y->mazzo[11].stanchezza = 0;
@@ -468,12 +452,12 @@ strcpy(y->mazzo[11].display[3], “| m m |");
             
 //carta 26
 strcpy(y->mazzo[12].nome, “Lich”);
-y->mazzo[12].costo = 21;
+y->mazzo[12].costo = 30;
 strcpy(y->mazzo[12].arma.nome, “Incantatore”);
-y->mazzo[12].arma.forza = 200;
+y->mazzo[12].arma.forza = 270;
 strcpy(y->mazzo[12].arma.potenziamento.nome, “Pugnale dell’immortalità”);
 y->mazzo[12].arma.potenziamento.attivo = FALSE;
-y->mazzo[12].arma.potenziamento.punti = 12;
+y->mazzo[12].arma.potenziamento.punti = 18;
 y->mazzo[12].arma.potenziamento.durata = 5;
 y->mazzo[12].forza = 100;
 y->mazzo[12].stanchezza = 0;
