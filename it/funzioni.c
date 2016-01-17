@@ -633,7 +633,7 @@ void turno(Giocatore *att, Giocatore *dif){
 	
 	switch(scelta){
 		
-		case 1: acquistocarte(att, dif); break;
+		case 1: acquistoCarte(att, dif); break;
 		case 2: combattimento(att, dif); break;
 		default: printf("Scelta non valida. "); turno(att, dif);
 		
