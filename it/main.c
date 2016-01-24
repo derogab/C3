@@ -13,6 +13,8 @@ void main(){
 			// Gioca
 			g1 = getGiocatore();
 			g2 = getGiocatore();
+			g1.dobloni = 30;
+			g2.dobloni = 30;
 			// Fai partire il gioco!
 			gioca(g1,g2);
 							

@@ -638,7 +638,7 @@ void turno(Giocatore *att, Giocatore *dif){
 		default: printf("Scelta non valida. "); turno(att, dif);
 		
 	}
-	
+	printf("\nFine turno\n\n");
 /*	//TOGLI QUESTA PARTE
 	att->nc--; dif->nc--; fflush(stdin); getchar(); fflush(stdin); // Per ora serve solo per terminare il programma dopo un po' di cicli
 	// TOGLI QUESTA PARTE
@@ -802,7 +802,7 @@ void combattimento(Giocatore *att, Giocatore *dif){
 	else{
 		printf("\n\nSi e' verificato un errore.\n'");
 	}
-	
+	printf("\n\n");for(i=0;i<2;i++){sleep(1);}
 		
 	
 }
@@ -948,7 +948,7 @@ void acquistoCarte(Giocatore *x, Giocatore *g){
     
     clearScreen();
     printf("ACQUISTO CARTA AVVERSARIO: \n");
-    
+    printf("Tuoi dobloni: %d    Avversario: %d \n\n",x->dobloni, g->dobloni);
     if(x->dobloni == 0){
         
         printf("Non possiedi abbastanza dobloni per acquistare carte dell'avversario.\n\n");
@@ -974,7 +974,7 @@ void acquistoCarte(Giocatore *x, Giocatore *g){
     printf("\n%5d %5d %5d %5d %5d %5d %5d %5d", g->mazzo[18].display[3], g->mazzo[19].display[3], g->mazzo[20].display[3], g->mazzo[21].display[3], g->mazzo[22].display[3], g->mazzo[23].display[3], g->mazzo[24].display[3], g->mazzo[25].display[3]);
     
     
-    printf("\n");for(i = 0; i < 30; i++){sleep(0.15);printf(".");}printf("\n\n");
+ /*   printf("\n");for(i = 0; i < 30; i++){sleep(0.15);printf(".");}printf("\n\n");*/
     
    if(compraCartaAvversario(x, g) == TRUE){
        
@@ -983,11 +983,18 @@ void acquistoCarte(Giocatore *x, Giocatore *g){
    }
    else{
        
-       printf("Non possiedi abbastanza dobloni per acquistare questa carta dell'avversario.\n\n");
+       printf("Non possiedi abbastanza dobloni per acquistare questa carta dell'avversario..\n\n");
        
    }
    
-     
+   printf("\n");
+   /*for(i = 0; i < 3; i++){
+   		sleep(0.15);
+   		printf(".");
+   }*/
+   printf("\n\n");for(i=0;i<2;i++){sleep(1);}
+   printf("fine\n\n");
+   
       
 
  
